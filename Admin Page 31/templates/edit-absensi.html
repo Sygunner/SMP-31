@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/assets/css/input.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>SMPN 31 Bandung</title>
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f7f7f7;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class="bx"></i>
+            <span class="text">SMPN 31 Bandung</span>
+        </a>
+        <ul class="side-menu top">
+            <li><a href="/dashboard"><i class="bx bxs-dashboard"></i><span class="text">Beranda</span></a></li>
+            <li class="active"><a href="/input"><i class='bx bxs-edit-alt'></i><span class="text">Input</span></a></li>
+            <li><a href="/absensi"><i class='bx bxs-calendar-edit'></i><span class="text">Absensi</span></a></li>
+            <li><a href="/terima-aduan"><i class="bx bxs-message-dots"></i><span class="text">Terima Aduan</span></a></li>
+            <li><a href="/data-kelas"><i class="bx bxs-group"></i><span class="text">Data Kelas</span></a></li>
+            <li><a href="/laporan"><i class='bx bxs-report'></i><span class="text">Laporan</span></a></li>
+        </ul>
+        <ul class="side-menu">
+            <li><a href="#"><i class="bx bxs-cog"></i><span class="text">Pengaturan</span></a></li>
+            <li><a href="/logout" class="logout"><i class="bx bxs-log-out-circle"></i><span class="text">Keluar</span></a></li>
+        </ul>
+    </section>
+
+    <section id="content">
+        <nav>
+            <i class="bx bx-menu"></i>
+            <a href="#" class="nav-link">Categories</a>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="Search..." />
+                    <button type="submit" class="search-btn"><i class="bx bx-search"></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+            <a href="#" class="notification"><i class="bx bxs-bell"></i><span class="num">8</span></a>
+            <a href="#" class="profile"><img src="/static/assets/images/logos/people.png" /></a>
+        </nav>
+
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Edit Absensi</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="#">Absensi</a></li>
+                        <li><i class="bx bx-chevron-right"></i></li>
+                        <li><a class="active" href="#">Edit Absensi</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <form method="POST" action="{{ url_for('edit_absen', id=absen['_id']) }}">
+                    <div class="form-group">
+                        <label for="nama_siswa">Nama Siswa:</label>
+                        <input type="text" id="nama_siswa" name="nama_siswa" value="{{ absen['nama'] }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kelas">Kelas:</label>
+                        <input type="text" id="kelas" name="kelas" value="{{ absen['kelas'] }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="keterangan">Keterangan:</label>
+                        <input type="text" id="keterangan" name="keterangan" value="{{ absen['keterangan'] }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tanggal">Tanggal:</label>
+                        <input type="date" id="tanggal" name="tanggal" value="{{ absen['tanggal'] }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status Kehadiran:</label>
+                        <select id="status" name="status" required>
+                            <option value="Hadir" {% if absen['status_kehadiran'] == 'Hadir' %}selected{% endif %}>Hadir</option>
+                            <option value="Tidak Hadir" {% if absen['status_kehadiran'] == 'Tidak Hadir' %}selected{% endif %}>Tidak Hadir</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-submit">Edit</button>
+                </form>
+            </div>
+        </main>
+    </section>
+</body>
+</html>

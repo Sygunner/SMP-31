@@ -1,0 +1,328 @@
+body,
+html {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* <navbar> */
+/* Gaya untuk navbar */
+.navbar {
+    width: 100%;
+    /* Atur lebar navbar agar memenuhi halaman */
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #10287A;
+}
+
+.brand {
+    display: flex;
+    font-size: 1.5em;
+    padding: 0px;
+    font-family: "Roboto", sans-serif;
+    margin-right: 40px;
+}
+
+.firstname {
+    color: white;
+    font-weight: 550;
+    font-size: 30px;
+    margin-right: 5px;
+}
+
+.lastname {
+    font-size: 30px;
+    color: #FFD600;
+    margin-left: 0px;
+    font-weight: 550;
+}
+
+/* Gaya untuk konten navbar */
+.navbar-content {
+    width: 100%;
+    /* Atur lebar konten navbar */
+    display: flex;
+    justify-content: space-between;
+    /* Membuat tautan navbar tersebar secara merata */
+    align-items: center;
+    margin-right: 15px;
+}
+
+/* Gaya untuk tautan navbar */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    transition: all 0.1s ease;
+}
+
+/* Mengubah warna tautan navbar saat dihover */
+.navbar a:hover {
+    border-radius: 5px;
+    border-bottom: 3px solid white;
+    border-top: 3px solid white;
+    color: white;
+}
+
+/* Style untuk tautan aktif (halaman saat ini) */
+.active {
+    border-radius: 5px;
+    background-color: white !important;
+    border-bottom: 3px solid white !important;
+    border-top: 3px solid white !important;
+    color: black !important;
+}
+
+/* Gaya untuk konten halaman */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Menetapkan tinggi sesuai dengan tinggi viewport */
+}
+
+.btn {
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: yellow;
+    flex-direction: row;
+    display: flex;
+    /* Mengatur tata letak flexbox */
+    align-items: center;
+    /* Mengatur item sejajar dengan center */
+    margin-left: 50px;
+    margin-right: 20px;
+}
+
+.btn>a {
+    color: black;
+}
+
+.btn>a:hover {
+    color: black;
+    background-color: transparent;
+    border-bottom: none;
+    border-top: none;
+}
+
+.navbar .navbar-content h1 {
+    color: white;
+    margin-right: 50px;
+}
+
+.img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 30px;
+    /* Menambahkan jarak ke arah kanan */
+}
+
+/* <konten> */
+.container {
+    text-align: center;
+    justify-content: center;
+    /* Untuk membuat tulisan berada di tengah */
+    margin: 10px auto;
+    /* Jarak antara tulisan dengan atas */
+    background-color: #FFD600;
+    width: 100%;
+    height: 60px;
+    border-radius: 20px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.container h1 {
+    font-size: 32px;
+    /* Ukuran teks */
+    font-weight: bold;
+    /* Membuat teks tebal */
+    margin: 0px;
+    font-family: 'Inter', sans-serif;
+    padding-top: 10px;
+}
+.container2 {
+  
+    /* Untuk membuat tulisan berada di tengah */
+    margin: 60px auto;
+    /* Jarak antara tulisan dengan atas */
+    background-color: #FFD600;
+    width: 50%;
+    height: 300px;
+    border-top-left-radius: 20px; /* Radius sudut kiri atas */
+    border-top-right-radius: 20px; /* Radius sudut kanan atas */
+    flex-direction: row;
+}
+
+.container2 h1 {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    /* Ukuran teks */
+    font-weight:bold;
+    /* Membuat teks tebal */
+    margin: 0px;
+    padding-top: 5px;
+    padding-bottom: 7px;
+}
+
+.content-container2{
+    display:flex;
+    background-color: #87CEEB;
+    width: 100%;
+    height: 253px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.konten{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width: 600px;
+    height: 180px;
+    margin-top:30px;
+    border-radius: 10px;
+}
+.konten>img{
+    width: 250px;
+    height: 180px;
+    margin:0px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.konten > h2{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+/* footer start */
+footer {
+    background-color: #10287a;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    margin-top: 50px;
+}
+
+.link-alamat p {
+    margin-left: 300px;
+    display: inline-block;
+    /* Mengatur elemen <p> agar tampil dalam satu baris */
+    margin-right: 20px;
+    /* Memberikan jarak antar kata */
+    padding: 10px;
+    margin: 5px;
+    text-decoration: none;
+}
+
+.rectangle {
+    display: block;
+    margin-right: 15px;
+    width: 52px;
+    height: 52px;
+    border-radius: 20%;
+    background-color: #ffd600;
+    float: left;
+    margin-left: 20px;
+    position: relative; /* Menambahkan posisi relatif */
+    overflow: hidden; /* Menyembunyikan bagian gambar yang melampaui batas border-radius */
+}
+.rectangle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Memastikan gambar mengisi seluruh rectangle tanpa merusak proporsi */
+    position: absolute; /* Memastikan gambar menutupi seluruh rectangle */
+    top: 0;
+    left: 0;
+    border-radius: 20%; /* Menambahkan border-radius yang sama untuk gambar */
+}
+
+.nama-smp h1 {
+    margin-top: 40px;
+    display: block;
+    letter-spacing: 4px;
+    color: #ffffff;
+}
+
+.nama-smp span {
+    color: #ffd600;
+}
+
+.nama-smp p {
+    display: block;
+    color: #ffffff;
+    margin-left: 20px;
+}
+
+.footer-container {
+    width: 100%;
+    height: 370px;
+    padding: 10px 0px 20px;
+}
+
+.link-bawah {
+    margin-left: 750px;
+    font-size: larger;
+    margin-top: -150px;
+    padding: 0;
+    justify-content: left;
+    text-align: left;
+}
+
+.link-bawah>a {
+    display: block;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+    font-family: "Poppins";
+    line-height: 30px;
+    text-transform: capitalize;
+}
+
+.sosialicons {
+    margin-left: 980px;
+    margin-top: -246px;
+    padding: 0;
+    justify-content: left;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.sosialicons>h3 {
+    color: #ffffff;
+}
+
+.sosialicons>a {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    line-height: 35px;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+.footer-bottom span {
+    font-weight: bold;
+}
+
+.horizontal-line {
+    border-top: 1px solid rgb(253, 253, 253);
+    width: 100%;
+}
+
+.footer-bottom .angka {
+    color: yellow;
+}
+
+/* footer end */

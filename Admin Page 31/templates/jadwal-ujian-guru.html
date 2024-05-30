@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/assets/css/input.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <title>SMPN 31 Bandung - Jadwal Ujian Guru</title>
+    <style>
+        /* Tambahkan styling sesuai kebutuhan */
+        /* Anda dapat menambahkan gaya CSS khusus di sini */
+    </style>
+</head>
+<body>
+    <section id="sidebar">
+        <!-- Isi sidebar di sini -->
+        <a href="#" class="brand">
+            <i class="bx"></i>
+            <span class="text">SMPN 31 Bandung</span>
+        </a>
+        <ul class="side-menu top">
+            <!-- Menu sidebar -->
+            <li><a href="/dash"><i class="bx bxs-dashboard"></i><span class="text">Beranda</span></a></li>
+            <li><a href="/absensi"><i class='bx bxs-calendar-edit' ></i><span class="text">Absensi</span></a></li>
+            <li><a href="/data"><i class='bx bxs-calendar-edit' ></i><span class="text">Data Absensi Siswa</span></a></li>
+            <li><a href="/laporan"><i class='bx bxs-report' ></i><span class="text">Laporan Nilai</span></a></li>
+        </ul>
+        <ul class="side-menu">
+            <!-- Menu sidebar bagian bawah -->
+            <li><a href="#"><i class="bx bxs-cog"></i><span class="text">Pengaturan</span></a></li>
+            <li><a href="/logout" class="logout"><i class="bx bxs-log-out-circle"></i><span class="text">Keluar</span></a></li>
+        </ul>
+    </section>
+
+    <section id="content">
+        <nav>
+            <!-- Isi navbar di sini -->
+            <i class="bx bx-menu"></i>
+            <a href="#" class="nav-link">Categories</a>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="Search...">
+                    <button type="submit" class="search-btn"><i class="bx bx-search"></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+            <a href="#" class="notification"><i class="bx bxs-bell"></i><span class="num">8</span></a>
+            <a href="#" class="profile"><img src="/static/assets/images/logos/people.png"></a>
+        </nav>
+
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Jadwal Ujian Guru</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="#">Jadwal Ujian Guru</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="table" id="teachers_exam_schedule">
+                <section class="table__header">
+                    <h1>Daftar Jadwal Ujian Guru</h1>
+                    <div class="input-group">
+                        <input type="search" placeholder="Search Data...">
+                        <img src="/static/assets/images/logos/search.png" alt="">
+                    </div>
+                    <div class="header-actions">
+                        <a href="/tambah-ujian-guru" class="btn btn-add">Tambah Jadwal</a>
+                    </div>
+                </section>
+                <section class="table__body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nama Guru</th>
+                                <th>Tanggal Ujian</th>
+                                <th>Mapel</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Looping data jadwal ujian guru -->
+                            {% for guru in jadwal_ujian_guru %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ guru.id }}</td>
+                                <td>{{ guru.nama_guru }}</td>
+                                <td>{{ guru.tanggal_ujian }}</td>
+                                <td>{{ guru.mapel }}</td>
+                                <td>
+                                    <a href="/edit-jadwal-ujian/{{ jadwal.id }}">Edit |</a>
+                                    <a href="/hapus-jadwal-ujian/{{ jadwal.id }}">Hapus</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </main>
+    </section>
+
+    <script>
+        // Script untuk fungsi pencarian data
+        const search = document.querySelector('.input-group input'),
+              table_rows = document.querySelectorAll('tbody tr');
+
+        search.addEventListener('input', searchTable);
+
+        function searchTable() {
+          table_rows.forEach((row, i) => {
+            let table_data = row.textContent.toLowerCase(),
+                search_data = search.value.toLowerCase();
+
+            row.classList.toggle('hide', table_data.indexOf(search_data) < 0);
+            row.style.setProperty('--delay', i / 25 + 's');
+          });
+
+          document.querySelectorAll('tbody tr:not(.hide)').forEach((visible_row, i) => {
+            visible_row.style.backgroundColor = (i % 2 == 0) ? 'transparent' : '#0000000b';
+          });
+        }
+    </script>
+</body>
+</html>
